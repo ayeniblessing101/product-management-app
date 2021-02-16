@@ -12,3 +12,10 @@
   - User should recieve Email and SMS when someone replies their comment.
 
 * A demo of the app can be accessed on heroku via [here](https://blessing-product.herokuapp.com)
+
+- Routes
+  - /users
+  - /users/login
+  - /products
+  - /products/:id/comments
+  - /comments/:id/replies
