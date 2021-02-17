@@ -1,3 +1,4 @@
+// This function sennd email
 async function sendEmail(emailService, data) {
   try {
     await emailService.send(data);
