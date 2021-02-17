@@ -81,16 +81,17 @@ const replyOne = {
 
 const setupDatabase = async () => {
   await User.deleteMany();
-  await Task.deleteMany();
+  await Product.deleteMany();
+  await Comment.deleteMany();
+  await Reply.deleteMany();
   await new User(userOne).save();
   await new User(userTwo).save();
-  await new Task(productOne).save();
-  await new Task(productTwo).save();
-  await new Task(productThree).save();
-  await new Task(commentOne).save();
-  await new Task(commentTwo).save();
-  await new Task(commentThree).save();
-  await new Task(replyOne).save();
+  await new Product(productOne).save();
+  await new Product(productTwo).save();
+  await new Product(productThree).save();
+  await new Comment(commentOne).save();
+  await new Comment(commentTwo).save();
+  await new Reply(replyOne).save();
 };
 
 module.exports = {
@@ -102,6 +103,6 @@ module.exports = {
   productThree,
   commentOne,
   commentTwo,
-  commentOne,
+  replyOne,
   setupDatabase,
 };

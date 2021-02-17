@@ -1,5 +1,6 @@
 const firebase = require("firebase");
 const cloudinary = require("cloudinary").v2;
+const sgMail = require("@sendgrid/mail");
 
 const User = require("./src/models/user");
 const Product = require("./src/models/product");
@@ -14,10 +15,13 @@ const ReplyRepository = require("./src/repositories/replyRepository");
 const sendSMS = require("./src/utils/sendSMS");
 const decodeBuffer = require("./src/utils/decodeBufferFile");
 const uploadFile = require("./src/utils/fileUpload");
+const sendEmail = require("./src/utils/sendEmail");
 
 const dataUri = require("./src/middleware/decodeBuffer");
 
 const firebaseDb = firebase.firestore();
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const credentials = {
   apiKey: process.env.SMS_API_KEY,
@@ -47,6 +51,9 @@ const di = {
   },
   uploadFileToCloud: (file) => {
     return uploadFile(cloudinary.uploader, file);
+  },
+  sendAnEmail: (data) => {
+    return sendEmail(sgMail, data);
   },
 };
 

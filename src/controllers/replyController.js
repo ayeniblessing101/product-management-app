@@ -22,7 +22,13 @@ class ReplyController {
         message: req.body.replyBody,
       };
 
-      await this.di.sendSms(smsData);
+      const emailData = {
+        to: comment.userId.email,
+        message: req.body.replyBody,
+      };
+
+      this.di.sendSms(smsData);
+      this.di.sendAnEmail(emailData);
       await this.di.replyRepository.create(data);
 
       res.status(201).send({ message: "Reply created successfully" });
