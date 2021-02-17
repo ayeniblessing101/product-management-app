@@ -15,6 +15,5 @@ const { createProduct, getProducts } = productController;
 
 productRouter.post("/products", auth, uploads.single("image"), createProduct);
 productRouter.get("/products", auth, getProducts);
-console.log(".......");
 
 module.exports = productRouter;
