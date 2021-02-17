@@ -4,8 +4,6 @@ const express = require("express");
 
 const firebase = require("firebase");
 
-require("./db/mongoose");
-
 require("./cloudinaryConfig");
 
 const firebaseConfig = require("./db/firebaseConfig");
